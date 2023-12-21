@@ -19,7 +19,26 @@ public class MerryXmasChecker
         return GetDate().Day == 25 && GetDate().Month == 12 ? "Today is merry xmas" : "Today is not merry xmas";
     }
 
-    private DateTime GetDate()
+    protected virtual DateTime GetDate()
+    {
+        return _dateTime;
+    }
+}
+
+class MerryXmasCheckerImpl : MerryXmasChecker
+{
+    private readonly DateTime _dateTime;
+
+    public MerryXmasCheckerImpl(DateTime dateTime)
+    {
+        _dateTime = dateTime;
+    }
+
+    public MerryXmasCheckerImpl()
+    {
+        
+    }
+    protected override DateTime GetDate()
     {
         return _dateTime;
     }
