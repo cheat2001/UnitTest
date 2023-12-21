@@ -16,12 +16,12 @@ public class Tests
         Assert.That(_merryXmasChecker.IsMerryXmas(), Is.EqualTo("Today is not merry xmas"));
         Assert.Pass();
     }
-}
-
-public class MerryXmasChecker
-{
-    public string IsMerryXmas()
+    
+    [Test]
+    public void Today_is_merry_xmas()
     {
-        return DateTime.Now.Day == 25 && DateTime.Now.Month == 12 ? "Today is merry xmas" : "Today is not merry xmas";
+        _merryXmasChecker= new MerryXmasChecker(new DateTime(2023,12,25));
+        Assert.That(_merryXmasChecker.IsMerryXmas(), Is.EqualTo("Today is merry xmas"));
+        Assert.Pass();
     }
 }
